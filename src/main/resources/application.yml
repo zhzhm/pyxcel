@@ -1,0 +1,14 @@
+display:
+  mach: 3
+  unit:
+    name: "mph"
+    factor: 2.23694
+pyxcel:
+  repository: "/opt/pyxcel"
+quarkus:
+  http:
+    host: 0.0.0.0
+  log:
+    category:
+      "cn.zzm":
+        level: "DEBUG"
