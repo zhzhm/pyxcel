@@ -5,7 +5,7 @@
         <el-col :span="16">
           <span class="brand">PyXcel</span>
           <div class="spaces" />
-          <el-button size="mini" round> New</el-button>
+          <el-button size="mini" round @click="newSession"> New</el-button>
           <el-button size="mini" round @click="executePython"> Run</el-button>
         </el-col>
         <el-col :span="8" class="right-btns">
@@ -50,7 +50,7 @@
         >
           <el-button size="small" type="primary">点击上传</el-button>
           <div slot="tip" class="el-upload__tip">
-            只能上传xls/xlsx文件，且不超过5MB
+            建议不超过5MB
           </div>
         </el-upload>
       </el-aside>
@@ -83,7 +83,8 @@ import {
   deleteFile,
   getSid,
   executePython,
-  sleep
+  sleep,
+  shortRadomStr
 } from '../api/index'
 
 import 'codemirror/theme/eclipse.css'
@@ -216,6 +217,11 @@ export default {
         }
       }
       return true
+    },
+    newSession () {
+      const radomStr = shortRadomStr()
+      const newHref = location.href.substring(0, location.href.lastIndexOf('/') + 1) + radomStr
+      location.href = newHref
     },
     _socketMethods (data) {
       if (data.charAt(0) !== '{' || data.charAt(data.length - 1) !== '}') {

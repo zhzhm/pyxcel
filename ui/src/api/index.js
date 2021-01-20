@@ -1,4 +1,5 @@
 import axios from 'axios'
+import hash from 'object-hash'
 const instance = axios.create({
   baseURL: '/',
   timeout: 5000
@@ -29,3 +30,9 @@ export const getSid = () => {
 }
 
 export const sleep = async millisecond => new Promise(resolve => setTimeout(() => resolve(), millisecond))
+
+export const shortRadomStr = () => {
+  return hash(Math.random() * Number.MAX_SAFE_INTEGER, { algorithm: 'md5', encoding: 'base64' })
+    .substring(0, 6)
+    .replace(/\+|=/g, 'z')
+}
