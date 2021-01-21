@@ -8,6 +8,7 @@ pyxcel:
 quarkus:
   http:
     host: 0.0.0.0
+    port: 18080
   log:
     category:
       "cn.zzm":

@@ -1,13 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import PyExcel from '../views/PyExcel.vue'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/session/:id',
+    path: '/',
     name: 'Home',
+    component: Home
+  },
+  {
+    path: '/session/:id',
+    name: 'PyExcel',
     component: PyExcel
   },
   {
